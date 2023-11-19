@@ -8,13 +8,13 @@ This package includes a range of functions for processing large orthomosaic rast
 
 Relevant functions are included in the "segmenter" folder, and a few scripts for specific uses are in "scripts".
 
-If you have a large image that you want to segment using one of the provided models, simply call `stitching.py` as follows:
+If you have a large image that you want to segment using one of the provided models, simply call `predict_multiclass.py` as follows:
 
 ```bash
-python stitching.py -i PATH/TO/IMAGE -m PATH/TO/MODEL -o OUTPUT/DIRECTORY
+python predict_multiclass.py -i PATH/TO/IMAGE -o OUTPUT/DIRECTORY
 ```
 
-This script will tile your image into the appropriate size, run it through the specified network, stitch the outputs together, and save the results.
+Since the inputs are required to be a multiple of 32*n pixels, the script may slightly clip edges of your image. Please preprocess the image on your end if you want to avoid any clipping. 
 
 ## Pretrained Models
 

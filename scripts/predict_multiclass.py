@@ -129,5 +129,7 @@ for test_fn in test_list:
 
     gs.update(wspace=0, hspace=0)
 
-    plt.savefig(f'{OUTPUT_DIR}/{test_fn}_predict.png', dpi=400, bbox_inches='tight')
-    np.savetxt(f'{OUTPUT_DIR}/{test_fn}_mask.dat', pred_img_mask, header='#background = 0, coral = 1, bleached = 2, glare = 3')
+    plt.savefig(f'{test_fn}_predict.png', dpi=400, bbox_inches='tight')
+    
+    # Squeeze the final dimension into 2d
+    np.savetxt(f'{test_fn}_mask.dat', tf.squeeze(pred_img_mask), header='#background = 0, coral = 1, bleached = 2, glare = 3')
